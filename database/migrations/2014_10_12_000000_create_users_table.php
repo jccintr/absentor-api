@@ -17,8 +17,16 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('phone')->nullable();;
+            $table->string('doc')->nullable();;
+            $table->string('address')->nullable();;
             $table->string('password');
+            $table->integer('role')->default(2);  // 0-admin 1-gerente 2-funcionario
+            $table->boolean('active')->default(true);
+            $table->string('token')->nullable();
+            $table->timestamp('token_expire_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
