@@ -15,10 +15,10 @@ class CadastroController extends Controller
         $name = $request->name;
         $email = filter_var($request->email,FILTER_VALIDATE_EMAIL);
         $password = $request->password;
-        $telefone = $request->telefone;
+       
     
     
-        if($name && $email && $password && $telefone) {
+        if($name && $email && $password) {
             $user = User::select()->where('email', $email)->first();
             if($user) {
                 $array['erro'] = "Email já cadastrado.";
@@ -43,3 +43,14 @@ class CadastroController extends Controller
     
     }
 }
+
+/*
+$table->string('name');
+$table->string('email')->unique();
+$table->string('phone')->nullable();
+$table->string('doc')->nullable();
+$table->string('address')->nullable();
+$table->string('password');
+$table->integer('role')->default(2);  // 0-admin 1-gerente 2-funcionario
+$table->boolean('active')->default(true);
+*/

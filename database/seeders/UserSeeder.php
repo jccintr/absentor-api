@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name' => "Bill Gates",
-            'email' => "Bill@microsoft.com",
+            'email' => "bill@microsoft.com",
             'phone' => "11-98653-2500",
             'doc' => "12345",
             'address' => "Av. Brasil, 525 - Centro - São Paulo",
@@ -48,7 +48,17 @@ class UserSeeder extends Seeder
             'active' => true,
             'created_at' => date("Y-m-d h:i:sa") 
         ]);
-
+        DB::table('users')->insert([
+            'name' => "Elizabeth Tabish",
+            'email' => "elizabeth@microsoft.com",
+            'phone' => "21-98632-3262",
+            'doc' => "12345",
+            'address' => "Av. Marques de Sapucaí, 345 - Rio de Janeiro",
+            'password' => password_hash('123', PASSWORD_DEFAULT),
+            'role' => 2,
+            'active' => true,
+            'created_at' => date("Y-m-d h:i:sa") 
+        ]);
 
 
     }

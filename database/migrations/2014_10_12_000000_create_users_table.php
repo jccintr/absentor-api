@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone')->nullable();;
-            $table->string('doc')->nullable();;
-            $table->string('address')->nullable();;
+            $table->string('phone')->nullable();
+            $table->string('doc')->nullable();
+            $table->string('address')->nullable();
             $table->string('password');
             $table->integer('role')->default(2);  // 0-admin 1-gerente 2-funcionario
             $table->boolean('active')->default(true);
