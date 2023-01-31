@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class EmpresaSeeder extends Seeder
+class FuncionarioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,11 +15,12 @@ class EmpresaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('empresas')->insert([
-            'nome' => "Garagem Gondomar",
+        DB::table('funcionarios')->insert([
+            'empresa_id' => 1,
+            'funcionario_id' => 2,
+            'role' => 1,
            // 'gerente_id' => 2,
             'created_at' => date("Y-m-d h:i:sa") 
         ]);
-     
     }
 }

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Funcionario;
+use App\Models\Empresa;
 
 class LoginController extends Controller
 {
 //============================================================
-// Loga usuario 
+// Loga usuario
 //============================================================
 public function signIn(Request $request){
 
@@ -34,6 +36,15 @@ public function signIn(Request $request){
     $token =  md5(time().rand(0,9999).time());
     $user->token = $token;
     $user->save();
+    if ($user->role > 0){
+        $funcionario = Funcionario::select()->where('funcionario_id', $user->id)->first();
+        if ($funcionario) {
+          $empresa = Empresa::find($funcionario->empresa_id);
+          $user->empresa = $empresa;
+        }
+    }
+
+
 
     return response()->json($user,200);
 }

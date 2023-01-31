@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->unsignedBigInteger('gerente_id');
+            //$table->unsignedBigInteger('gerente_id');
             $table->timestamps();
             // cria o relacionamento com a tabela users
-            $table->foreign('gerente_id')->references('id')->on('users');
+           // $table->foreign('gerente_id')->references('id')->on('users');
         });
     }
 

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CadastroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Login Controller ====================================================
 Route::post('/signin',[LoginController::class,'signIn']);
+// Cadastro Controller ====================================================
+Route::post('/signup',[CadastroController::class,'signUp']);
