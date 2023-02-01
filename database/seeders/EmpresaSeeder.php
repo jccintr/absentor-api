@@ -17,7 +17,6 @@ class EmpresaSeeder extends Seeder
     {
         DB::table('empresas')->insert([
             'nome' => "Garagem Gondomar",
-           // 'gerente_id' => 2,
             'created_at' => date("Y-m-d h:i:sa") 
         ]);
      

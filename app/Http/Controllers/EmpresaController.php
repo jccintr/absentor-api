@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
@@ -13,9 +14,9 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //
+        $empresas = Empresa::orderBy('nome')->get();
+        return response()->json($empresas->values()->all(),200);
     }
-
    
 
     /**
@@ -26,7 +27,19 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nome = $request->nome;
+
+        if ($nome) {
+            $novaEmpresa = new Empresa();
+            $novaEmpresa->nome = $nome;
+            $novaEmpresa->save();
+            if($novaEmpresa){
+               return response()->json($novaEmpresa,201);
+            }
+        } else {
+            $array['erro'] = "Requisição mal formatada";
+            return response()->json($array,400);
+        }
     }
 
     /**
@@ -37,7 +50,13 @@ class EmpresaController extends Controller
      */
     public function show($id)
     {
-        //
+        $empresa = Empresa::find($id);
+
+        if ($empresa){
+            return response()->json($empresa,200);
+        } else {
+            return response()->json(['erro'=>'Empresa não encontrada.'],404);
+        }
     }
 
     
@@ -51,7 +70,21 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $empresa = Empresa::find($id);
+        
+        if ($empresa) {
+            $novoNome = $request->nome;
+            if ($novoNome) {
+               $empresa->nome = $novoNome;
+               $empresa->save();
+               return response()->json($empresa,200);
+            } else {
+                return response()->json(['erro'=>'Campos obrigatórios não informados.'],400);
+            }
+        } else {
+          return response()->json(['erro'=>'Empresa não encontrada.'],404);
+        }
+        
     }
 
     /**

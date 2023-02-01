@@ -19,7 +19,12 @@ class FuncionarioSeeder extends Seeder
             'empresa_id' => 1,
             'funcionario_id' => 2,
             'role' => 1,
-           // 'gerente_id' => 2,
+            'created_at' => date("Y-m-d h:i:sa") 
+        ]);
+        DB::table('funcionarios')->insert([
+            'empresa_id' => 1,
+            'funcionario_id' => 3,
+            'role' => 2,
             'created_at' => date("Y-m-d h:i:sa") 
         ]);
     }

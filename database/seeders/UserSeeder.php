@@ -36,28 +36,20 @@ class UserSeeder extends Seeder
             'password' => password_hash('123', PASSWORD_DEFAULT),
            // 'role' => 1,
             'active' => true,
+            'isAdmin' => false,
             'created_at' => date("Y-m-d h:i:sa") 
         ]);
+        
         DB::table('users')->insert([
-            'name' => "Bill Gates",
-            'email' => "bill@microsoft.com",
-            'phone' => "11-98653-2500",
-            'doc' => "12345",
-            'address' => "Av. Brasil, 525 - Centro - São Paulo",
-            'password' => password_hash('123', PASSWORD_DEFAULT),
-           // 'role' => 1,
-            'active' => true,
-            'created_at' => date("Y-m-d h:i:sa") 
-        ]);
-        DB::table('users')->insert([
-            'name' => "Elizabeth Tabish",
-            'email' => "elizabeth@microsoft.com",
+            'name' => "Elisa",
+            'email' => "elisa@gmail.com",
             'phone' => "21-98632-3262",
             'doc' => "12345",
             'address' => "Av. Marques de Sapucaí, 345 - Rio de Janeiro",
             'password' => password_hash('123', PASSWORD_DEFAULT),
            // 'role' => 2,
             'active' => true,
+            'isAdmin' => false,
             'created_at' => date("Y-m-d h:i:sa") 
         ]);
 

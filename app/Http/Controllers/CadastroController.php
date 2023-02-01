@@ -44,7 +44,6 @@ class CadastroController extends Controller
             $newUser->phone = $phone;
             $newUser->doc = $doc;
             $newUser->address = $address;
-            $newUser->role =  $role;
             $newUser->token = $token;
             $newUser->save();
             
@@ -54,6 +53,7 @@ class CadastroController extends Controller
                 $funcionario = new Funcionario();
                 $funcionario->empresa_id = $empresa_id;
                 $funcionario->funcionario_id = $newUser->id;
+                $funcionario->role = $role;
                 $funcionario->save();
                 return response()->json($newUser,201);
             }

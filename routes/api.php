@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\EmpresaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/signin',[LoginController::class,'signIn']);
 // Cadastro Controller ====================================================
 Route::post('/signup',[CadastroController::class,'signUp']);
+// Empresa Controller ====================================================
+Route::post('/empresas',[EmpresaController::class,'store']);
+Route::get('/empresas',[EmpresaController::class,'index']);
+Route::get('/empresas/{id}', [EmpresaController::class, 'show']);
+Route::put('/empresas/{id}', [EmpresaController::class, 'update']);
