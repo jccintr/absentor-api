@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,7 @@ Route::post('/empresas',[EmpresaController::class,'store']);
 Route::get('/empresas',[EmpresaController::class,'index']);
 Route::get('/empresas/{id}', [EmpresaController::class, 'show']);
 Route::put('/empresas/{id}', [EmpresaController::class, 'update']);
+Route::get('/empresas/{id}/users', [EmpresaController::class, 'users']);
+//  User controller========================================================
+Route::get('/users',[UserController::class,'index']);
+Route::get('/users/{id}',[UserController::class,'show']);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empresa;
+use App\Models\User;
+use App\Models\Funcionario;
 use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
@@ -16,6 +18,22 @@ class EmpresaController extends Controller
     {
         $empresas = Empresa::orderBy('nome')->get();
         return response()->json($empresas->values()->all(),200);
+    }
+
+    public function users($idEmpresa)
+    {
+     
+       $funcionarios = Funcionario::select()->where('empresa_id', $idEmpresa)->get();
+     
+       
+       foreach ($funcionarios as $funcionario){
+        $user = User::find($funcionario->funcionario_id);
+        if ($user) {
+           $users[] = $user;
+        }
+       }
+     
+        return response()->json($users,200);
     }
    
 
