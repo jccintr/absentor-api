@@ -25,15 +25,18 @@ class EmpresaController extends Controller
      
        $funcionarios = Funcionario::select()->where('empresa_id', $idEmpresa)->get();
      
-       
+       $users = [];
        foreach ($funcionarios as $funcionario){
         $user = User::find($funcionario->funcionario_id);
         if ($user) {
            $users[] = $user;
         }
        }
-     
-        return response()->json($users,200);
+        if($users)
+            return response()->json($users,200);
+        else
+            return response()->json(['erro'=>'Usuários não encontrados.'],404);
+        
     }
    
 

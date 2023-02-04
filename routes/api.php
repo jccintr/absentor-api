@@ -35,3 +35,4 @@ Route::get('/empresas/{id}/users', [EmpresaController::class, 'users']);
 //  User controller========================================================
 Route::get('/users',[UserController::class,'index']);
 Route::get('/users/{id}',[UserController::class,'show']);
+Route::put('/users/{id}', [UserController::class, 'update']);
