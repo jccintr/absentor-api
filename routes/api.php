@@ -36,3 +36,4 @@ Route::get('/empresas/{id}/users', [EmpresaController::class, 'users']);
 Route::get('/users',[UserController::class,'index']);
 Route::get('/users/{id}',[UserController::class,'show']);
 Route::put('/users/{id}', [UserController::class, 'update']);
+Route::post('/users/{id}', [UserController::class, 'avatar']);

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Funcionario;
 use App\Models\Empresa;
 use Monolog\Handler\RollbarHandler;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -69,4 +70,25 @@ class UserController extends Controller
       
         
     }
+
+    public function avatar($id,Request $request){
+
+        $avatar = $request->file('avatar');
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['erro'=>'Usuário não encontrado.'],404);
+        }
+
+        if ($user->avatar) {
+            Storage::disk('public')->delete($user->avatar);
+        }
+        $avatar_url = $avatar->store('avatar','public');
+        $user->avatar = $avatar_url;
+        $user->save();
+        return response()->json($user,200);
+    
+       
+    
+      }
 }
