@@ -11,12 +11,12 @@ use App\Models\Falta;
 class FaltaController extends Controller
 {
 
-    public function index()
+    public function index($id,$ano,$mes)
     {
         $faltas = Falta::orderBy('data')->get();
         return response()->json($faltas->values()->all(),200);
     }
-   
+
     public function store(Request $request)
     {
         $empresa_id = $request->empresa_id;
@@ -25,31 +25,27 @@ class FaltaController extends Controller
         $dias = $request->dias;
         $motivo = $request->motivo;
 
-
-
-      
         if ($empresa_id and $funcionario_id and $data and $dias and $motivo) {
-            $novaFalta = new Falta();
-            $novaFalta->empresa_id = $empresa_id;
-            $novaFalta->funcionario_id = $funcionario_id;
-            $novaFalta->data = $data;
-            $novaFalta->dias = $dias;
-            $novaFalta->motivo = $motivo;
-            $novaFalta->save();
-            $arrDias = [];
-                     
             for($d=0;$d<$dias;$d++){
-             
-                array_push( $arrDias, date("Y-m-d", strtotime("+".$d." day", strtotime($data) ) ) );
-               
+              $novaFalta = new Falta();
+              $novaFalta->empresa_id = $empresa_id;
+              $novaFalta->funcionario_id = $funcionario_id;
+              $novaFalta->data =date("Y-m-d", strtotime("+".$d." day", strtotime($data) ) );
+              $novaFalta->motivo = $motivo;
+              $novaFalta->save();
             }
-         
-            $novaFalta->faltas = $arrDias;
+/*
+            $arrDias = [];
+            for($d=0;$d<$dias;$d++){
+             array_push( $arrDias, date("Y-m-d", strtotime("+".$d." day", strtotime($data) ) ) );
+            }
+            $novaFalta->faltas = $arrDias;*/
             if($novaFalta){
-               return response()->json($novaFalta,201);
+               $array['sucesso'] = "Falta(s) registradas com sucesso!";
+               return response()->json($array,201);
             }
         } else {
-            $array['erro'] = "Requisição mal formatada";
+            $array['erro'] = "Requisição mal formatada!";
             return response()->json($array,400);
         }
     }

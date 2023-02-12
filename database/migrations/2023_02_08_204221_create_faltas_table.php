@@ -13,22 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-     
+
         Schema::create('faltas', function (Blueprint $table) {
 
             $table->id();
             $table->unsignedBigInteger('empresa_id');
             $table->unsignedBigInteger('funcionario_id');
             $table->date('data');
-            $table->integer('dias')->default(1);
+           // $table->integer('dias')->default(1);
             $table->string('motivo');
+            $table->string('anexo')->nullable();
             $table->timestamps();
              // cria o relacionamento com a tabela empresas
              $table->foreign('empresa_id')->references('id')->on('empresas');
               // cria o relacionamento com a tabela users
-            $table->foreign('funcionario_id')->references('id')->on('users'); 
+            $table->foreign('funcionario_id')->references('id')->on('users');
         });
-     
+
     }
 
     /**
@@ -38,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-      //  Schema::dropIfExists('faltas');
+        Schema::dropIfExists('faltas');
     }
 };
