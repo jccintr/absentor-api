@@ -9,5 +9,6 @@ class Falta extends Model
 {
     use HasFactory;
     protected $table = 'faltas';
-    protected $fillable = ['nome','gerente_id'];
+    protected $fillable = ['empresa_id','funcionario_id','data','dias','motivo'];
 }
+

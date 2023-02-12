@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FaltaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::get('/users',[UserController::class,'index']);
 Route::get('/users/{id}',[UserController::class,'show']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::post('/users/{id}', [UserController::class, 'avatar']);
+// Falta controller ==================================================
+Route::post('/faltas',[FaltaController::class,'store']);
+Route::get('/faltas',[FaltaController::class,'index']);

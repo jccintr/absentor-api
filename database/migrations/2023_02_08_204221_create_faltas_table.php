@@ -16,7 +16,7 @@ return new class extends Migration
      
         Schema::create('faltas', function (Blueprint $table) {
 
-           /*  $table->id();
+            $table->id();
             $table->unsignedBigInteger('empresa_id');
             $table->unsignedBigInteger('funcionario_id');
             $table->date('data');
@@ -26,7 +26,7 @@ return new class extends Migration
              // cria o relacionamento com a tabela empresas
              $table->foreign('empresa_id')->references('id')->on('empresas');
               // cria o relacionamento com a tabela users
-            $table->foreign('funcionario_id')->references('id')->on('users'); */
+            $table->foreign('funcionario_id')->references('id')->on('users'); 
         });
      
     }
