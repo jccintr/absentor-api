@@ -24,7 +24,7 @@ class FaltaController extends Controller
         $data = $request->data;
         $dias = $request->dias;
         $motivo = $request->motivo;
-
+        $data =  date("Y-m-d",strtotime($data));
         if ($empresa_id and $funcionario_id and $data and $dias and $motivo) {
             for($d=0;$d<$dias;$d++){
               $novaFalta = new Falta();
