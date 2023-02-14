@@ -40,4 +40,4 @@ Route::put('/users/{id}', [UserController::class, 'update']);
 Route::post('/users/{id}', [UserController::class, 'avatar']);
 // Falta controller ==================================================
 Route::post('/faltas',[FaltaController::class,'store']);
-Route::get('/faltas/{id}/{ano}/{mes}',[FaltaController::class,'index']);
+Route::get('/faltas/{idFuncionario}/{ano}/{mes}',[FaltaController::class,'index']);

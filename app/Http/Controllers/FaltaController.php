@@ -11,9 +11,15 @@ use App\Models\Falta;
 class FaltaController extends Controller
 {
 
-    public function index($id,$ano,$mes)
+    public function index($idFuncionario,$ano,$mes)
     {
-        $faltas = Falta::orderBy('data')->get();
+
+     
+        $faltas = Falta::whereYear('data',$ano)
+                         ->whereMonth('data', $mes)
+                         ->where('funcionario_id',$idFuncionario)
+                         ->get();
+       
         return response()->json($faltas->values()->all(),200);
     }
 
