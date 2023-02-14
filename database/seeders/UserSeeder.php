@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
         'address' => "Rua abc, 23 - Paladino - São Paulo",
         'password' => password_hash('123', PASSWORD_DEFAULT),
         'active' => true,
-        'created_at' => date("Y-m-d h:i:sa"),
+       // 'created_at' => date("Y-m-d h:i:sa"),
         'isAdmin' => true
     ]);
 
@@ -42,8 +42,8 @@ class UserSeeder extends Seeder
         'address' => "Av. Itália, 525 - Santa Tereza - Taubaté",
         'password' => password_hash('123', PASSWORD_DEFAULT),
         'active' => true,
-        'isAdmin' => false,
-        'created_at' => date("Y-m-d h:i:sa")
+        'isAdmin' => false
+        //'created_at' => date("Y-m-d h:i:sa")
     ]);
 
     DB::table('users')->insert([
@@ -54,8 +54,8 @@ class UserSeeder extends Seeder
         'address' => "Av. Itália, 525 - Santa Tereza - Taubaté",
         'password' => password_hash('123', PASSWORD_DEFAULT),
         'active' => true,
-        'isAdmin' => false,
-        'created_at' => date("Y-m-d h:i:sa")
+        'isAdmin' => false
+       // 'created_at' => date("Y-m-d h:i:sa")
     ]);
 
     DB::table('users')->insert([
@@ -66,8 +66,8 @@ class UserSeeder extends Seeder
         'address' => "Av. Itália, 525 - Santa Tereza - Taubaté",
         'password' => password_hash('123', PASSWORD_DEFAULT),
         'active' => true,
-        'isAdmin' => false,
-        'created_at' => date("Y-m-d h:i:sa")
+        'isAdmin' => false
+       // 'created_at' => date("Y-m-d h:i:sa")
     ]);
 
 

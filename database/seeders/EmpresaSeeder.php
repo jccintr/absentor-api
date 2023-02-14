@@ -16,8 +16,8 @@ class EmpresaSeeder extends Seeder
     public function run()
     {
         DB::table('empresas')->insert([
-            'nome' => "Garagem Gondomar",
-            'created_at' => date("Y-m-d h:i:sa") 
+            'nome' => "Garagem Gondomar"
+          //  'created_at' => date("Y-m-d h:i:sa") 
         ]);
      
     }
