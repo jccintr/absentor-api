@@ -15,13 +15,13 @@ class FaltaController extends Controller
     public function index($idFuncionario,$ano,$mes)
     {
 
-     
+
         $faltas = Falta::whereYear('data',$ano)
                          ->whereMonth('data', $mes)
                          ->where('funcionario_id',$idFuncionario)
                          ->orderby('data')
                          ->get();
-       
+
         foreach($faltas as $falta){
             $falta->dia_mes = date('d',strtotime($falta->data))*1;
             $falta->dia_semana = date('w',strtotime($falta->data))*1;
@@ -35,9 +35,11 @@ class FaltaController extends Controller
         $empresa_id = $request->empresa_id;
         $funcionario_id = $request->funcionario_id;
         $data = $request->data;
+
         $dias = $request->dias;
         $motivo = $request->motivo;
         $data =  date("Y-m-d",strtotime($data));
+    
         $anexo = $request->file('anexo');
 
 
