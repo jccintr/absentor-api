@@ -19,18 +19,18 @@ public function signIn(Request $request){
 
     if(!$email or !$password) {
         $array['erro'] = "Nome de usuário e ou senha inválidos";
-        return response()->json($array,400);
+        return response()->json($array,401);
     }
 
     $user = User::select()->where('email', $email)->first();
     if(!$user) {
         $array['erro'] = "Nome de usuário e ou senha inválidos";
-        return response()->json($array,400);
+        return response()->json($array,401);
     }
 
     if(!password_verify($password, $user->password)) {
         $array['erro'] = "Nome de usuário e ou senha inválidos";
-        return response()->json($array,400);
+        return response()->json($array,401);
     }
 
     $token =  md5(time().rand(0,9999).time());

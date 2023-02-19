@@ -38,6 +38,7 @@ Route::get('/users',[UserController::class,'index']);
 Route::get('/users/{id}',[UserController::class,'show']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::post('/users/{id}', [UserController::class, 'avatar']);
+Route::post('/users/password/{id}',[UserController::class,'password']);
 // Falta controller ==================================================
 Route::post('/faltas',[FaltaController::class,'store']);
 Route::get('/faltas/{idFuncionario}/{ano}/{mes}',[FaltaController::class,'index']);
