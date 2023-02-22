@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('address',100)->nullable();
             $table->string('password');
            // $table->integer('role')->default(2);  // 0-admin 1-gerente 2-funcionario
-            $table->boolean('active')->default(true);
+           // $table->boolean('active')->default(true);
+            $table->boolean('bloqueado')->default(false);
             $table->boolean('isAdmin')->default(false);
             $table->string('token')->nullable();
             $table->timestamp('token_expire_at')->nullable();

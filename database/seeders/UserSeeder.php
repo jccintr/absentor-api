@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
         'doc' => "02763236",
         'address' => "Rua abc, 23 - Paladino - São Paulo",
         'password' => password_hash('123', PASSWORD_DEFAULT),
-        'active' => true,
+        //'active' => true,
        // 'created_at' => date("Y-m-d h:i:sa"),
         'isAdmin' => true
     ]);
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         'doc' => "12345",
         'address' => "Av. Itália, 525 - Santa Tereza - Taubaté",
         'password' => password_hash('123', PASSWORD_DEFAULT),
-        'active' => true,
+        //'active' => true,
         'isAdmin' => false
         //'created_at' => date("Y-m-d h:i:sa")
     ]);
@@ -53,7 +53,7 @@ class UserSeeder extends Seeder
         'doc' => "12656345",
         'address' => "Av. Itália, 525 - Santa Tereza - Taubaté",
         'password' => password_hash('123', PASSWORD_DEFAULT),
-        'active' => true,
+        //'active' => true,
         'isAdmin' => false
        // 'created_at' => date("Y-m-d h:i:sa")
     ]);
@@ -65,7 +65,7 @@ class UserSeeder extends Seeder
         'doc' => "xxx8555",
         'address' => "Av. Itália, 525 - Santa Tereza - Taubaté",
         'password' => password_hash('123', PASSWORD_DEFAULT),
-        'active' => true,
+        //'active' => true,
         'isAdmin' => false
        // 'created_at' => date("Y-m-d h:i:sa")
     ]);
