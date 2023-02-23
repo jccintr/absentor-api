@@ -42,11 +42,13 @@ class UserController extends Controller
           $novoDoc = $request->doc;
           $novoAddress = $request->address;
           $novoRole = $request->role;
+          $novoBloqueado = $request->bloqueado;
           if($novoNome) {
               $user->name = $novoNome;
               $user->phone = $novoPhone;
               $user->doc = $novoDoc;
               $user->address = $novoAddress;
+              $user->bloqueado = $novoBloqueado;
               $user->save();
               $user->role = $novoRole;
               $funcionario = Funcionario::select()->where('funcionario_id', $id)->first();
