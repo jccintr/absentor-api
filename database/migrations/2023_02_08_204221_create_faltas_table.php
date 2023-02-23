@@ -21,8 +21,8 @@ return new class extends Migration
             $table->unsignedBigInteger('funcionario_id');
             $table->date('data');
            // $table->integer('dias')->default(1);
-            $table->string('motivo');
-            $table->string('anexo')->nullable();
+            $table->string('motivo',100);
+            $table->string('anexo',191)->nullable();
             $table->timestamps();
              // cria o relacionamento com a tabela empresas
              $table->foreign('empresa_id')->references('id')->on('empresas');
