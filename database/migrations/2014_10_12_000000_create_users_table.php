@@ -19,10 +19,8 @@ return new class extends Migration
             $table->string('email',100)->unique();
             $table->string('phone',20)->nullable();
             $table->string('doc',20)->nullable();
-            $table->string('address',100)->nullable();
+            $table->string('address',150)->nullable();
             $table->string('password',191);
-           // $table->integer('role')->default(2);  // 0-admin 1-gerente 2-funcionario
-           // $table->boolean('active')->default(true);
             $table->boolean('bloqueado')->default(false);
             $table->boolean('isAdmin')->default(false);
             $table->string('token',191)->nullable();
