@@ -16,9 +16,11 @@ class EmpresaSeeder extends Seeder
     public function run()
     {
         DB::table('empresas')->insert([
-            'nome' => "Garagem Gondomar"
-          //  'created_at' => date("Y-m-d h:i:sa") 
-        ]);
+            'nome' => "Garagem Gondomar",
+            'email' => "contato@garagemgondomar.pt",
+            'phone' => "351 6532 3236",
+            'address' => "Alameda Santos, 35 - Gondomar"
+         ]);
      
     }
 }

@@ -53,6 +53,9 @@ class EmpresaController extends Controller
         if ($nome) {
             $novaEmpresa = new Empresa();
             $novaEmpresa->nome = $nome;
+            $novaEmpresa->email = $request->email;
+            $novaEmpresa->phone = $request->phone;
+            $novaEmpresa->address = $request->address;
             $novaEmpresa->save();
             if($novaEmpresa){
                return response()->json($novaEmpresa,201);
@@ -97,6 +100,9 @@ class EmpresaController extends Controller
             $novoNome = $request->nome;
             if ($novoNome) {
                $empresa->nome = $novoNome;
+               $empresa->email = $request->email;
+               $empresa->phone = $request->phone;
+               $empresa->address = $request->address;
                $empresa->save();
                return response()->json($empresa,200);
             } else {
